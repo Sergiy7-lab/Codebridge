@@ -1,0 +1,73 @@
+.highlighted {
+  background-color: yellow;
+}
+
+.wrap{
+  width: 90%;
+  margin: 0 10%;
+
+  .input-container {
+    position: relative;
+    width: 600px;
+    margin-top: 50px;
+
+    .label {
+      padding-left: 60px;
+    }
+
+    .icon-container {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+
+      .input-icon {
+        width: 20px;
+        height: 20px;
+        pointer-events: none;
+      }
+    }
+
+    .input {
+      padding-left: 60px;
+    }
+  }
+
+  .results {
+
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .card {
+      max-width: 400px;
+      list-style: none;
+      height: 530px;
+      margin-right: 20px;
+      margin-top: 20px;
+      cursor: pointer;
+
+      .card-img {
+        width: 400px;
+        height: 217px;
+      }
+
+      .published-date {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

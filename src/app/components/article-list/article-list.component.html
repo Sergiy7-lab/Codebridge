@@ -1,0 +1,32 @@
+<div class="wrap">
+  <mat-form-field class="input-container">
+    <mat-label class="label">Filter by keywords</mat-label>
+    <div class="icon-container">
+      <img src="assets/Vector.png" alt="Search" class="input-icon">
+    </div>
+    <input class="input" matInput type="text" [(ngModel)]="keyword" (ngModelChange)="applyFilter()">
+  </mat-form-field>
+
+  <div class="results">Results {{filteredArticles.length}}</div>
+
+  <div class="card-container">
+    <mat-card class="card" *ngFor="let article of filteredArticles" (click)="goToArticle(article.id)">
+      <img mat-card-image class="card-img" src="{{article.image_url}}">
+      <mat-card-content>
+        <p class="published-date"><img src="assets/calendar.png" alt="Calendar"
+                                       class="calendar-icon"> {{ formatDate(article.published_at) }}</p>
+      </mat-card-content>
+      <mat-card-header>
+        <mat-card-title
+          [innerHTML]="(article.title | highlight: keyword | slice:0:100) + (article.title.length > 100 ? '...' : '')"></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p
+          [innerHTML]="(article.summary | highlight: keyword | slice:0:100) + (article.summary.length > 100 ? '...' : '')">
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+
