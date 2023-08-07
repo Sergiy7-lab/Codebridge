@@ -1,15 +1,13 @@
 <div class="wrap">
-  <mat-form-field class="input-container">
-    <mat-label class="label">Filter by keywords</mat-label>
-    <div class="icon-container">
-      <img src="assets/Vector.png" alt="Search" class="input-icon">
-    </div>
+  <p class="input-label">Filter by keywords</p>
+  <mat-form-field class="input-container" appearance="outline">
+    <mat-icon matPrefix>search</mat-icon>
     <input class="input" matInput type="text" [(ngModel)]="keyword" (ngModelChange)="applyFilter()">
   </mat-form-field>
 
-  <div class="results">Results {{filteredArticles.length}}</div>
+  <div class="results">Results {{ filteredArticles.length }}</div>
 
-  <div class="card-container">
+  <div class="card-container" >
     <mat-card class="card" *ngFor="let article of filteredArticles" (click)="goToArticle(article.id)">
       <img mat-card-image class="card-img" src="{{article.image_url}}">
       <mat-card-content>
@@ -20,11 +18,14 @@
         <mat-card-title
           [innerHTML]="(article.title | highlight: keyword | slice:0:100) + (article.title.length > 100 ? '...' : '')"></mat-card-title>
       </mat-card-header>
-      <mat-card-content>
+      <mat-card-content class="card-content">
         <p
           [innerHTML]="(article.summary | highlight: keyword | slice:0:100) + (article.summary.length > 100 ? '...' : '')">
         </p>
       </mat-card-content>
+      <mat-card-footer class="card-footer">
+        <div> Read more <img src="assets/arrow-right.png"></div>
+      </mat-card-footer>
     </mat-card>
   </div>
 </div>

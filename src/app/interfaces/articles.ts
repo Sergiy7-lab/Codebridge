@@ -1,5 +1,11 @@
-export interface Articles {
-  id: string;
+export interface ArticleListResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Article[];
+}
+export interface Article {
+  id: number;
   title: string;
   url: string;
   image_url: string;
@@ -10,9 +16,4 @@ export interface Articles {
   featured: boolean;
 }
 
-export interface ArticleListResponse {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: Articles[];
-}
+

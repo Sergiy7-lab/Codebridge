@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ArticleService} from '../../services/article.service';
-import {Articles, ArticleListResponse} from '../../interfaces/articles';
+import {Article, ArticleListResponse} from '../../interfaces/articles';
 import {Router} from '@angular/router';
 
 @Component({
@@ -9,8 +9,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./article-list.component.scss']
 })
 export class ArticleListComponent implements OnInit {
-  articles: Articles[] = [];
-  filteredArticles: Articles[] = [];
+  articles: Article[] = [];
+  filteredArticles: Article[] = [];
   keyword: string = '';
 
   constructor(private articleService: ArticleService, private router: Router) {
@@ -38,7 +38,7 @@ export class ArticleListComponent implements OnInit {
     }
   }
 
-  goToArticle(articleId: string): void {
+  goToArticle(articleId: number): void {
     this.router.navigate(['/article', articleId]);
   }
 

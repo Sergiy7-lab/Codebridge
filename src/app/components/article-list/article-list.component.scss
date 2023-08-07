@@ -2,72 +2,94 @@
   background-color: yellow;
 }
 
-.wrap{
-  width: 90%;
-  margin: 0 10%;
+::ng-deep .mat-mdc-text-field-wrapper {
+  height: 50px !important;
+}
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__leading,
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__notch,
+::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-notched-outline__trailing,
+{
+  border-color: #2b2c2b;
+  border-width: 1px;
+}
+
+::ng-deep .mat-mdc-input-element {
+  top: -2px ;
+  position: relative;
+
+}
+
+.wrap {
+  width: 100%;
+  margin-top: 20px;
+  box-sizing: border-box;
+  padding: 0 20px;
+
+  .input-label {
+    font-weight: bold;
+  }
 
   .input-container {
     position: relative;
-    width: 600px;
-    margin-top: 50px;
+    display: flex;
+    max-width: 400px;
 
-    .label {
-      padding-left: 60px;
+    mat-icon{
+      top: -2px;
+      position: relative;
     }
-
-    .icon-container {
-      position: absolute;
-      top: 50%;
-      left: 20px;
-      transform: translateY(-50%);
-
-      .input-icon {
-        width: 20px;
-        height: 20px;
-        pointer-events: none;
-      }
-    }
-
-    .input {
-      padding-left: 60px;
-    }
-  }
-
-  .results {
-
   }
 
   .card-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    grid-gap: 10px;
 
     .card {
-      max-width: 400px;
       list-style: none;
       height: 530px;
-      margin-right: 20px;
       margin-top: 20px;
       cursor: pointer;
 
       .card-img {
-        width: 400px;
         height: 217px;
       }
 
       .published-date {
         margin-top: 20px;
       }
+
+      .card-content {
+        margin-top: 40px;
+      }
+
+      .card-footer {
+        margin-top: 40px;
+        font-weight: bold;
+        padding: 0 16px;
+
+        img {
+          padding-left: 10px;
+        }
+      }
     }
   }
 }
 
+@media screen and (max-width: 490px) {
+  .card-container {
+    grid-template-columns: repeat(auto-fill, 300px) !important;
+  }
+  .wrap {
+    max-width: 300px;
+  }
+}
 
-
-
-
-
-
-
-
-
-
+@media screen and (max-width: 365px) {
+  .card-container {
+    grid-template-columns: repeat(auto-fill, 250px) !important;
+  }
+  .wrap {
+    max-width: 250px;
+  }
+}
